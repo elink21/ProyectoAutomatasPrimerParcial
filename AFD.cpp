@@ -26,8 +26,6 @@ private:
 		return false;
 	}
 public:
-	Automaton();
-	~Automaton();
 
 	bool isAcceptedWord(string word)
 	{
@@ -44,8 +42,9 @@ public:
 		{
 			if(isInAlphabet(word[i]))
 			{
-
+				//Movimiento entre posiciones;
 				position=graph[position].transitions[word[i]];
+				cout<<"\n El automata se movio estado "<<position<<" ,con la letra: "<<word[i];
 			}
 			else return false;	
 		}
@@ -80,6 +79,39 @@ public:
 
 int main()
 {
+	node state1,state2;
+	vector<node>test;
+
+	Automaton testAut;
+
+	state1.startState=true;
+	state1.endState=true;
+	state1.transitions['b']=0;
+	state1.transitions['a']=1;
+
+	state2.startState=false;
+	state2.endState=false;
+	state2.transitions['b']=1;
+	state2.transitions['a']=0;
+	test.push_back(state1);
+	test.push_back(state2);
+
+	testAut.setGraph(test);
+	testAut.setAlphabet("ab");
+
+	while(true)
+	{
+		string t;
+		cout<<"\n\nIngrese palabra: ";
+		cin>>t;
+		if(testAut.isAcceptedWord(t))
+		{
+			cout<<"\n\nPalabra aceptada!";
+		}
+		else cout<<"\n\nPalabra rechazada ):";
+	}
+
+
 
 
 }
