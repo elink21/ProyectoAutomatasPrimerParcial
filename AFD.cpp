@@ -10,8 +10,6 @@ struct node
 
 class Automaton{
 protected:
-
-
 private:
 	vector<node> graph;
 	vector<char> alphabet;
@@ -71,9 +69,6 @@ public:
 			this->alphabet.push_back(a[i]);
 		}
 	}
-
-
-
 };
 
 
@@ -110,8 +105,4 @@ int main()
 		}
 		else cout<<"\n\nPalabra rechazada ):";
 	}
-
-
-
-
 }
